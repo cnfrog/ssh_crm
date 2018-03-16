@@ -1,0 +1,20 @@
+<component name="libraryTable">
+  <library name="Hibernate" type="hibernate">
+    <CLASSES>
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/antlr-2.7.7.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/dom4j-1.6.1.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/geronimo-jta_1.1_spec-1.1.1.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/hibernate-commons-annotations-5.0.1.Final.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/hibernate-core-5.0.7.Final.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/hibernate-jpa-2.1-api-1.0.0.Final.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/jandex-2.0.0.Final.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/javassist-3.18.1-GA.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/jboss-logging-3.3.0.Final.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/mysql-connector-java-5.1.7-bin.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/standard.jar!/" />
+      <root url="jar://D:/Eclipse/Resource/SSH/Hibernate/jstl-1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
