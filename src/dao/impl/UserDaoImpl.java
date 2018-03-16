@@ -1,5 +1,6 @@
 package dao.impl;
 
+import dao.BaseDao;
 import dao.UserDao;
 import domain.User;
 import org.hibernate.criterion.DetachedCriteria;
@@ -8,7 +9,7 @@ import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.util.List;
 
-public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
+public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
     @Override
     public User findUserByUserCode(String user_code) {
@@ -22,18 +23,6 @@ public class UserDaoImpl extends HibernateDaoSupport implements UserDao {
         } else {
             return null;
         }
-
-
-        //Hql
-//        return getHibernateTemplate().execute(new HibernateCallback<User>() {
-//            @Override
-//            public User doInHibernate(Session session) throws HibernateException {
-//                String hql="from User where user_code=?";
-//                Query query = session.createQuery(hql);
-//                User user = (User) query.uniqueResult();
-//                return user;
-//            }
-//        });
 
 
     }
