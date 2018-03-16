@@ -48,5 +48,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="Json" level="project" />
+    <orderEntry type="library" name="tomcat" level="project" />
   </component>
 </module>

@@ -12,6 +12,7 @@
           <element id="library" level="project" name="Struts2" />
           <element id="library" level="project" name="Spring" />
           <element id="library" level="module" name="JUnit4" module-name="ssh_crm" />
+          <element id="library" level="project" name="Json" />
         </element>
       </element>
     </root>
