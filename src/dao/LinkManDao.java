@@ -1,4 +1,6 @@
 package dao;
 
-public interface LinkManDao {
+import domain.LinkMan;
+
+public interface LinkManDao extends BaseDao<LinkMan>{
 }

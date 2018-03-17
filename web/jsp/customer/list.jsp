@@ -8,8 +8,7 @@
     <TITLE>客户列表</TITLE>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
-    <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css
-          rel=stylesheet>
+    <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css rel=stylesheet>
     <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
     <SCRIPT language=javascript>
         function chagePage(pageNum) {
@@ -21,6 +20,19 @@
             $("#pageSizeInput").val(pageSize);
             $("#pageForm").submit();
         }
+
+        function selectCustomer(cust_id, cust_name) {
+            var win = window.opener;//获得添加页面的window对象
+            //获得添加页面的document对象
+            var doc = win.document;
+            //获得隐藏域和文本框
+            doc.getElementById("cust_id").value=cust_id;
+            doc.getElementById("cust_name").value=cust_name;
+            //关闭当前窗口
+            window.close();
+
+        }
+
     </SCRIPT>
 
     <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
@@ -62,12 +74,14 @@
                         <FORM id="pageForm" name="customerForm"
                               action="${pageContext.request.contextPath }/CustomerAction_list"
                               method=post>
+
+                            <!--隐藏域-->
                             <input type="hidden" name="currentPage" id="currentPageInput"
                                    value="<s:property value="#pageBean.currentPage"/>"/>
                             <input type="hidden" name="pageSize" id="pageSizeInput"
                                    value="<s:property value="#pageBean.pageSize"/>"/>
-
-
+                            <!--加载是否需要选择的标记参数-->
+                            <input type="hidden" name="select" value="<s:property value="#parameters.select"/>">
                             <TABLE cellSpacing=0 cellPadding=2 border=0>
                                 <TBODY>
                                 <TR>
@@ -113,9 +127,16 @@
                                 <TD><s:property value="#cust.cust_phone"/></TD>
                                 <TD><s:property value="#cust.cust_mobile"/></TD>
                                 <TD>
-                                    <a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id"/>">修改</a>
-                                    &nbsp;&nbsp;
-                                    <a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id"/>">删除</a>
+                                    <s:if test="#parameters.select==null">
+                                        <a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id"/>">修改</a>
+                                        &nbsp;&nbsp;
+                                        <a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id"/>">删除</a>
+                                    </s:if>
+                                    <s:else>
+                                        <input type="button" value="选择"
+                                               onclick="selectCustomer(<s:property value="#cust.cust_id"/>,'<s:property
+                                                       value="#cust.cust_name"/>')">
+                                    </s:else>
                                 </TD>
                                 </s:iterator>
 

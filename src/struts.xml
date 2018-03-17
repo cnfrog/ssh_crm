@@ -11,10 +11,12 @@
         <global-exception-mappings>
             <exception-mapping exception="java.lang.RuntimeException" result="error"></exception-mapping>
         </global-exception-mappings>
+        <!--用户Action-->
         <action name="UserAction_*" class="userAction" method="{1}">
             <result name="toHome">/index.htm</result>
             <result name="error">/login.jsp</result>
         </action>
+        <!--客户Action-->
         <action name="CustomerAction_*" class="customerAction" method="{1}">
             <result name="list">/jsp/customer/list.jsp</result>
             <result name="edit">/jsp/customer/add.jsp</result>
@@ -23,7 +25,18 @@
                 <param name="actionName">CustomerAction_list</param>
             </result>
         </action>
+        <!--联系人Action-->
+        <action name="LinkManAction_*" class="linkManAction" method="{1}">
+            <result name="list">/jsp/linkman/list.jsp</result>
+            <result name="add">/jsp/linkman/add.jsp</result>
+            <result name="error">/jsp/linkman/list.jsp</result>
+            <result name="toList" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">LinkManAction_list</param>
+            </result>
+        </action>
 
+        <!--数据字典Action-->
         <action name="BaseDictAction" class="baseDictAction" method="execute"></action>
     </package>
 </struts>

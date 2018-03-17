@@ -90,6 +90,9 @@
     <bean name="baseDictAction" class="action.BaseDictAction" scope="prototype">
         <property name="baseDictService" ref="baseDictService"></property>
     </bean>
+    <bean name="linkManAction" class="action.LinkManAction" scope="prototype">
+        <property name="lms" ref="linkManService"></property>
+    </bean>
 
 
     <!-- service -->
@@ -104,17 +107,26 @@
     <bean name="customerService" class="service.impl.CustomerServiceImpl">
         <property name="cd" ref="customerDao"></property>
     </bean>
+
+    <bean name="linkManService" class="service.impl.LinkManServiceImpl">
+        <property name="lmd" ref="linkManDao"></property>
+    </bean>
+
+
+
     <!-- dao -->
 
     <bean name="baseDictDao" class="dao.impl.BaseDictDaoImpl">
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
     <bean name="userDao" class="dao.impl.UserDaoImpl">
-        <!-- 注入sessionFactory -->
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
     <bean name="customerDao" class="dao.impl.CustomerDaoImpl">
-        <!-- 注入sessionFactory -->
         <property name="sessionFactory" ref="sessionFactory"></property>
     </bean>
+    <bean name="linkManDao" class="dao.impl.LinkManDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"></property>
+    </bean>
+
 </beans>
