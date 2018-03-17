@@ -34,8 +34,13 @@ public class CustomerServiceImpl implements CustomerService {
 
 
         //2调用dao保存客户
-        cd.save(customer);
+        cd.savetOrUpdate(customer);
 
+    }
+
+    @Override
+    public Customer getById(Long cust_id) {
+        return cd.getById(cust_id);
     }
 
     public void setCd(CustomerDao cd) {

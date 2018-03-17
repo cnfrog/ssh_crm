@@ -41,13 +41,27 @@ public class CustomerAction extends ActionSupport implements ModelDriven<Custome
 
     public String add() throws Exception {
         //---------------------------------
-        photo.renameTo(new File("E:/hh.jpg"));
-
-
+        //文件保存路径
+        if(photo !=null) {
+            photo.renameTo(new File("E:/hh.jpg"));
+            System.out.println(photoFileName);
+            System.out.println(photoContentType);
+        }
         //---------------------------------
         //1.调用service
         cs.save(customer);
         return "toList";
+    }
+
+    public String toEdit() throws Exception {
+        //1调用Service根据id获得客户对象
+        Customer c = cs.getById(customer.getCust_id());
+        System.out.println(c);
+
+        //2将客户对象放置到request域,并转发到编辑界面
+        ActionContext.getContext().put("customer", c);
+
+        return "edit";
     }
 
     public CustomerService getCs() {

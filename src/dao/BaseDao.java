@@ -12,6 +12,8 @@ import java.util.List;
  * */
 
 public interface BaseDao<T> {
+    //增或修改
+    void savetOrUpdate(T t);
     //增
     void save(T t);
 
