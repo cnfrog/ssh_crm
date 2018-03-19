@@ -8,6 +8,24 @@
 
     <constant name="struts.objectFactory" value="spring"></constant>
     <package name="crm" namespace="/" extends="struts-default">
+        <!--注册拦截器-->
+        <interceptors>
+            <interceptor name="privilegeInterceptor" class="interceptor.PrivilegeInterceptor"></interceptor>
+            <!--配置拦截器-->
+            <interceptor-stack name="myStack">
+                <interceptor-ref name="privilegeInterceptor">
+                    <param name="excludeMethods">login,regist</param>
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"></interceptor-ref>
+            </interceptor-stack>
+        </interceptors>
+
+        <!--指定默认拦截器-->
+        <default-interceptor-ref name="myStack"></default-interceptor-ref>
+
+        <global-results>
+            <result name="toLogin" type="redirect">/login.jsp</result>
+        </global-results>
         <global-exception-mappings>
             <exception-mapping exception="java.lang.RuntimeException" result="error"></exception-mapping>
         </global-exception-mappings>
@@ -15,11 +33,14 @@
         <action name="UserAction_*" class="userAction" method="{1}">
             <result name="toHome">/index.htm</result>
             <result name="error">/login.jsp</result>
+            <result name="regist">/regist.jsp</result>
         </action>
         <!--客户Action-->
         <action name="CustomerAction_*" class="customerAction" method="{1}">
             <result name="list">/jsp/customer/list.jsp</result>
+            <result name="selectlist">/jsp/customer/selectlist.jsp</result>
             <result name="edit">/jsp/customer/add.jsp</result>
+            <result name="count">/jsp/customer/count.jsp</result>
             <result name="toList" type="redirectAction">
                 <param name="namespace">/</param>
                 <param name="actionName">CustomerAction_list</param>
@@ -35,6 +56,21 @@
                 <param name="actionName">LinkManAction_list</param>
             </result>
         </action>
+
+        <!--客户关系Action-->
+        <action name="SaleVisitAction_*" class="saleVisitAction" method="{1}">
+            <result name="list">/jsp/salevisit/list.jsp</result>
+            <result name="add">/jsp/salevisit/add.jsp</result>
+            <result name="error">/jsp/salevisit/list.jsp</result>
+            <result name="toList" type="redirectAction">
+                <param name="namespace">/</param>
+                <param name="actionName">SaleVisitAction_list</param>
+            </result>
+        </action>
+
+
+
+
 
         <!--数据字典Action-->
         <action name="BaseDictAction" class="baseDictAction" method="execute"></action>

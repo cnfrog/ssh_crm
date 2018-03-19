@@ -1,15 +1,22 @@
 package dao.impl;
 
-import dao.BaseDao;
 import dao.UserDao;
 import domain.User;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
-import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.util.List;
 
+@Repository("userDao")
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
+
+    @Resource(name = "sessionFactory")
+    public void setSf(SessionFactory sf) {
+        super.setSessionFactory(sf);
+    }
 
     @Override
     public User findUserByUserCode(String user_code) {
@@ -26,4 +33,5 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
 
     }
+
 }

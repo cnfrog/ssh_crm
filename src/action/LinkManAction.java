@@ -7,12 +7,20 @@ import domain.LinkMan;
 import org.apache.commons.lang3.StringUtils;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 import service.LinkManService;
 import utils.PageBean;
 
+import javax.annotation.Resource;
+
+@Controller("linkManAction")
+@Scope("prototype")
 public class LinkManAction extends ActionSupport implements ModelDriven<LinkMan> {
     private LinkMan linkMan = new LinkMan();
+    @Resource(name = "linkManService")
     private LinkManService lms;
+
 
     // 当前页数
     private Integer currentPage;

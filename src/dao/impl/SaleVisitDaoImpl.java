@@ -1,14 +1,15 @@
 package dao.impl;
 
-import dao.LinkManDao;
-import domain.LinkMan;
+import dao.BaseDao;
+import dao.SaleVisitDao;
+import domain.SaleVisit;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
 
-@Repository("linkManDao")
-public class LinkManDaoImpl extends BaseDaoImpl<LinkMan> implements LinkManDao{
+@Repository("saleVisitDao")
+public class SaleVisitDaoImpl extends BaseDaoImpl<SaleVisit> implements SaleVisitDao {
 
     @Resource(name = "sessionFactory")
     public void setSf(SessionFactory sf) {

@@ -1,17 +1,25 @@
 package dao.impl;
 
 import dao.BaseDao;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.DetachedCriteria;
 import org.hibernate.criterion.Projections;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
+import javax.annotation.Resource;
 import java.io.Serializable;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
+
 public class BaseDaoImpl<T> extends HibernateDaoSupport implements BaseDao<T> {
 
+    @Resource(name = "sessionFactory")
+    public void setSf(SessionFactory sf) {
+        super.setSessionFactory(sf);
+    }
 
     //用于接收运行期泛型类型
     private Class clazz;

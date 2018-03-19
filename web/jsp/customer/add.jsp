@@ -6,7 +6,7 @@
 <html>
 <head>
     <TITLE>
-        <s:property value="#customer==null?'添加':'修改'" />客户
+        <s:property value="#customer==null?'添加':'修改'"/>客户
     </TITLE>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
@@ -31,7 +31,8 @@
 <FORM id=form1 name=form1
       action="${pageContext.request.contextPath }/CustomerAction_add"
       method="post" enctype="multipart/form-data">
-    <input type="hidden" name="cust_id" value=" <s:property value="#customer.cust_id"/>"/>
+
+    <input type="hidden" name="cust_id" value="<s:property value="#customer.cust_id"/>"/>
 
     <TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
         <TBODY>
@@ -53,7 +54,7 @@
             <TD vAlign=top width="100%" bgColor=#ffffff>
                 <TABLE cellSpacing=0 cellPadding=5 width="100%" border=0>
                     <TR>
-                        <TD class=manageHead>当前位置：客户管理 &gt;  <s:property value="#customer==null?'添加':'修改'" />客户</TD>
+                        <TD class=manageHead>当前位置：客户管理 &gt; <s:property value="#customer==null?'添加':'修改'"/>客户</TD>
                     </TR>
                     <TR>
                         <TD height=2></TD>
@@ -72,9 +73,9 @@
                     <TR>
                         <td>客户名称：</td>
                         <td>
-                            <INPUT class=textbox id=sChannel2
+                            <INPUT class=textbox
                                    style="WIDTH: 180px" maxLength=50 name="cust_name"
-                                   value=" <s:property value="#customer.cust_name"/>"/>
+                                   value="<s:property value="#customer.cust_name"/>"/>
                         </td>
                         <td>客户级别 ：</td>
                         <td id="level">
@@ -98,15 +99,15 @@
 
                         <td>固定电话 ：</td>
                         <td>
-                            <INPUT class=textbox id=sChannel2
+                            <INPUT class=textbox
                                    style="WIDTH: 180px" maxLength=50 name="cust_phone"
-                                   value=" <s:property value="#customer.cust_photo"/>">
+                                   value="<s:property value="#customer.cust_photo"/>">
                         </td>
                         <td>移动电话 ：</td>
                         <td>
-                            <INPUT class=textbox id=sChannel2
+                            <INPUT class=textbox
                                    style="WIDTH: 180px" maxLength=50 name="cust_mobile"
-                                   value=" <s:property value="#customer.cust_mobile"/>">
+                                   value="<s:property value="#customer.cust_mobile"/>">
                         </td>
                     </TR>
 

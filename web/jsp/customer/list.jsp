@@ -1,4 +1,4 @@
-﻿<%@ page language="java" contentType="text/html; charset=UTF-8"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
@@ -19,18 +19,6 @@
         function chagePageSize(pageSize) {
             $("#pageSizeInput").val(pageSize);
             $("#pageForm").submit();
-        }
-
-        function selectCustomer(cust_id, cust_name) {
-            var win = window.opener;//获得添加页面的window对象
-            //获得添加页面的document对象
-            var doc = win.document;
-            //获得隐藏域和文本框
-            doc.getElementById("cust_id").value=cust_id;
-            doc.getElementById("cust_name").value=cust_name;
-            //关闭当前窗口
-            window.close();
-
         }
 
     </SCRIPT>
@@ -80,8 +68,6 @@
                                    value="<s:property value="#pageBean.currentPage"/>"/>
                             <input type="hidden" name="pageSize" id="pageSizeInput"
                                    value="<s:property value="#pageBean.pageSize"/>"/>
-                            <!--加载是否需要选择的标记参数-->
-                            <input type="hidden" name="select" value="<s:property value="#parameters.select"/>">
                             <TABLE cellSpacing=0 cellPadding=2 border=0>
                                 <TBODY>
                                 <TR>
@@ -127,54 +113,11 @@
                                 <TD><s:property value="#cust.cust_phone"/></TD>
                                 <TD><s:property value="#cust.cust_mobile"/></TD>
                                 <TD>
-                                    <s:if test="#parameters.select==null">
-                                        <a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id"/>">修改</a>
-                                        &nbsp;&nbsp;
-                                        <a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id"/>">删除</a>
-                                    </s:if>
-                                    <s:else>
-                                        <input type="button" value="选择"
-                                               onclick="selectCustomer(<s:property value="#cust.cust_id"/>,'<s:property
-                                                       value="#cust.cust_name"/>')">
-                                    </s:else>
+                                    <a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id"/>">修改</a>
+                                    &nbsp;&nbsp;
+                                    <a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id"/>">删除</a>
                                 </TD>
                                 </s:iterator>
-
-                                <%-- 	<s:iterator value="#list">
-                                    <TR
-                                        style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-                                        <TD><s:property value="cust_name"/></TD>
-                                        <TD><s:property value="cust_level"/></TD>
-                                        <TD><s:property value="cust_source"/></TD>
-                                        <TD><s:property value="cust_linkman"/></TD>
-                                        <TD><s:property value="cust_phone"/></TD>
-                                        <TD><s:property value="cust_mobile"/></TD>
-                                        <TD>
-                                        <a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=${customer.cust_id}">修改</a>
-                                        &nbsp;&nbsp;
-                                        <a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>
-                                        </TD>
-                                </s:iterator> --%>
-
-
-                                <%-- 	<c:forEach items="${list }" var="customer">
-                                    <TR
-                                        style="FONT-WEIGHT: normal; FONT-STYLE: normal; BACKGROUND-COLOR: white; TEXT-DECORATION: none">
-                                        <TD>${customer.cust_name }</TD>
-                                        <TD>${customer.cust_level }</TD>
-                                        <TD>${customer.cust_source }</TD>
-                                        <TD>${customer.cust_linkman }</TD>
-                                        <TD>${customer.cust_phone }</TD>
-                                        <TD>${customer.cust_mobile }</TD>
-                                        <TD>
-                                        <a href="${pageContext.request.contextPath }/customerServlet?method=edit&custId=${customer.cust_id}">修改</a>
-                                        &nbsp;&nbsp;
-                                        <a href="${pageContext.request.contextPath }/customerServlet?method=delete&custId=${customer.cust_id}">删除</a>
-                                        </TD>
-                                    </TR>
-
-                                    </c:forEach> --%>
-
                             </TBODY>
                         </TABLE>
                     </TD>
@@ -190,9 +133,9 @@
 												<select name="pageSize"
                                                         onchange="chagePageSize($('#pageSizeSelect option:selected').val())"
                                                         id="pageSizeSelect">
-													<option value="3" <s:property
+													<option value="3"<s:property
                                                             value="#pageBean.pageSize==3?'select':''"/>>3</option>
-													<option value="5" <s:property
+													<option value="5"<s:property
                                                             value="#pageBean.pageSize==5?'select':''"/>>5</option>
 												</select>
 												条
@@ -230,6 +173,5 @@
     </TR>
     </TBODY>
 </TABLE>
-
 </BODY>
 </HTML>

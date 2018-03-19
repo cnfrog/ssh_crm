@@ -180,11 +180,11 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/jsp/salevisit/add.jsp"
 														target=main>－新增客户拜访</A></TD>
 												</TR>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/SaleVisitAction_list.action"
 														target=main>－客户拜访列表</A></TD>
 												</TR>
 												
@@ -233,11 +233,11 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/CustomerAction_count?type=industry"
 														target=main>－客户行业统计</A></TD>
 												</TR>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="#"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/CustomerAction_count?type=source"
 														target=main>－客户来源统计</A></TD>
 												</TR>
 												

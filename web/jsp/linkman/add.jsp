@@ -56,7 +56,7 @@
                             <input type="hidden" name="customer.cust_id" style="WIDTH: 180px" id="cust_id" value="<s:property value="#linkman.customer.cust_id" />"/>
                             <input type="text" style="WIDTH: 180px" id="cust_name" value="<s:property value="#linkman.customer.cust_name" />"/>
                             <input type="button" value="选择客户"
-                                   onclick="window.open('${pageContext.request.contextPath}/CustomerAction_list?select=true','','width=600,height= 300')">
+                                   onclick="window.open('${pageContext.request.contextPath}/CustomerAction_selectlist','','width=600,height= 300')">
                         </td>
                     </tr>
                     <TR>

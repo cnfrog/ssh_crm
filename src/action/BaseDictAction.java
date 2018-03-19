@@ -4,12 +4,18 @@ import com.opensymphony.xwork2.ActionSupport;
 import domain.BaseDict;
 import net.sf.json.JSONArray;
 import org.apache.struts2.ServletActionContext;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Controller;
 import service.BaseDictService;
 
+import javax.annotation.Resource;
 import java.util.List;
 
-public class BaseDictAction extends ActionSupport{
+@Controller("baseDictAction")
+@Scope("prototype")
+public class BaseDictAction extends ActionSupport {
     private String dict_type_code;
+    @Resource(name = "baseDictService")
     private BaseDictService baseDictService;
 
 
@@ -20,7 +26,6 @@ public class BaseDictAction extends ActionSupport{
 
         //2将list转换为json格式
         String json = JSONArray.fromObject(list).toString();
-
 
         //3将json发给浏览器
         ServletActionContext.getResponse().setContentType("application/json;charset=utf-8");
