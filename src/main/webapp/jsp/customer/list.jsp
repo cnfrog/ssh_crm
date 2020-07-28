@@ -7,9 +7,9 @@
 <head>
     <TITLE>客户列表</TITLE>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <LINK href="${pageContext.request.contextPath }/css/Style.css" type=text/css rel=stylesheet>
-    <LINK href="${pageContext.request.contextPath }/css/Manage.css" type=text/css rel=stylesheet>
-    <script type="text/javascript" src="${pageContext.request.contextPath }/js/jquery-1.4.4.min.js"></script>
+    <LINK href="${pageContext.request.contextPath }/main/resources/web/css/Style.css" type=text/css rel=stylesheet>
+    <LINK href="${pageContext.request.contextPath }/main/resources/web/css/Manage.css" type=text/css rel=stylesheet>
+    <script type="text/javascript" src="${pageContext.request.contextPath }/main/resources/web/js/jquery-1.4.4.min.js"></script>
     <SCRIPT language=javascript>
         function chagePage(pageNum) {
             $("#currentPageInput").val(pageNum);
@@ -21,16 +21,6 @@
             $("#pageForm").submit();
         }
 
-        function selectCustomer(cust_id, cust_name) {
-            var win = window.opener;//获得添加页面的window对象
-            //获得添加页面的document对象
-            var doc = win.document;
-            //获得隐藏域和文本框
-            doc.getElementById("cust_id").value = cust_id;
-            doc.getElementById("cust_name").value = cust_name;
-            //关闭当前窗口
-            window.close();
-        }
     </SCRIPT>
 
     <META content="MSHTML 6.00.2900.3492" name=GENERATOR>
@@ -41,11 +31,11 @@
 <TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
     <TBODY>
     <TR>
-        <TD width=15><IMG src="${pageContext.request.contextPath }/images/new_019.jpg"
+        <TD width=15><IMG src="${pageContext.request.contextPath }/main/resources/web/images/new_019.jpg"
                           border=0></TD>
-        <TD width="100%" background="${pageContext.request.contextPath }/images/new_020.jpg"
+        <TD width="100%" background="${pageContext.request.contextPath }/main/resources/web/images/new_020.jpg"
             height=20></TD>
-        <TD width=15><IMG src="${pageContext.request.contextPath }/images/new_021.jpg"
+        <TD width=15><IMG src="${pageContext.request.contextPath }/main/resources/web/images/new_021.jpg"
                           border=0></TD>
     </TR>
     </TBODY>
@@ -53,8 +43,8 @@
 <TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
     <TBODY>
     <TR>
-        <TD width=15 background=${pageContext.request.contextPath }/images/new_022.jpg><IMG
-                src="${pageContext.request.contextPath }/images/new_022.jpg" border=0></TD>
+        <TD width=15 background=${pageContext.request.contextPath><IMG
+                src="${pageContext.request.contextPath }/main/resources/web/images/new_022.jpg" border=0></TD>
         <TD vAlign=top width="100%" bgColor=#ffffff>
             <TABLE cellSpacing=0 cellPadding=5 width="100%" border=0>
                 <TR>
@@ -70,7 +60,7 @@
                 <TR>
                     <TD height=25>
                         <FORM id="pageForm" name="customerForm"
-                              action="${pageContext.request.contextPath }/CustomerAction_selectlist"
+                              action="${pageContext.request.contextPath }/CustomerAction_list"
                               method=post>
 
                             <!--隐藏域-->
@@ -123,9 +113,9 @@
                                 <TD><s:property value="#cust.cust_phone"/></TD>
                                 <TD><s:property value="#cust.cust_mobile"/></TD>
                                 <TD>
-                                    <input type="button" value="选择"
-                                           onclick="selectCustomer(<s:property value="#cust.cust_id"/>,'<s:property
-                                                   value="#cust.cust_name"/>')">
+                                    <a href="${pageContext.request.contextPath }/CustomerAction_toEdit?cust_id=<s:property value="#cust.cust_id"/>">修改</a>
+                                    &nbsp;&nbsp;
+                                    <a href="${pageContext.request.contextPath }/CustomerAction_delete?cust_id=<s:property value="#cust.cust_id"/>">删除</a>
                                 </TD>
                                 </s:iterator>
                             </TBODY>
@@ -166,19 +156,19 @@
                 </TBODY>
             </TABLE>
         </TD>
-        <TD width=15 background="${pageContext.request.contextPath }/images/new_023.jpg"><IMG
-                src="${pageContext.request.contextPath }/images/new_023.jpg" border=0></TD>
+        <TD width=15 background="${pageContext.request.contextPath }/main/resources/web/images/new_023.jpg"><IMG
+                src="${pageContext.request.contextPath }/main/resources/web/images/new_023.jpg" border=0></TD>
     </TR>
     </TBODY>
 </TABLE>
 <TABLE cellSpacing=0 cellPadding=0 width="98%" border=0>
     <TBODY>
     <TR>
-        <TD width=15><IMG src="${pageContext.request.contextPath }/images/new_024.jpg"
+        <TD width=15><IMG src="${pageContext.request.contextPath }/main/resources/web/images/new_024.jpg"
                           border=0></TD>
         <TD align=middle width="100%"
-            background="${pageContext.request.contextPath }/images/new_025.jpg" height=15></TD>
-        <TD width=15><IMG src="${pageContext.request.contextPath }/images/new_026.jpg"
+            background="${pageContext.request.contextPath }/main/resources/web/images/new_025.jpg" height=15></TD>
+        <TD width=15><IMG src="${pageContext.request.contextPath }/main/resources/web/images/new_026.jpg"
                           border=0></TD>
     </TR>
     </TBODY>

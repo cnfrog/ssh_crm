@@ -130,7 +130,7 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/jsp/customer/add.jsp" 
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/main/resources/web/jsp/customer/add.jsp"
 														target=main>－ 新增客户</A></TD>
 												</TR>
 												<TR> 
@@ -155,7 +155,7 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/jsp/linkman/add.jsp"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/main/resources/web/jsp/linkman/add.jsp"
 														target=main>－ 新增联系人</A></TD>
 												</TR>
 												<TR>
@@ -180,7 +180,7 @@ A.active {
 											cellPadding=2 width=155 align=center border=0>
 											<TBODY>
 												<TR>
-													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/jsp/salevisit/add.jsp"
+													<TD class=menuSmall><A class=style2 href="${pageContext.request.contextPath}/main/resources/web/jsp/salevisit/add.jsp"
 														target=main>－新增客户拜访</A></TD>
 												</TR>
 												<TR>

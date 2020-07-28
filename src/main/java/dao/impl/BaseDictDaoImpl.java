@@ -13,6 +13,7 @@ import java.util.List;
 @Repository("baseDictDao")
 public class BaseDictDaoImpl extends BaseDaoImpl<BaseDict> implements BaseDictDao {
 
+
     @Resource(name = "sessionFactory")
     public void setSf(SessionFactory sf) {
         super.setSessionFactory(sf);

@@ -68,10 +68,6 @@
             </result>
         </action>
 
-
-
-
-
         <!--数据字典Action-->
         <action name="BaseDictAction" class="baseDictAction" method="execute"></action>
     </package>

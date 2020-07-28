@@ -25,7 +25,7 @@
 
             if (window.parent != window) {// 如果是在框架中
                 //就让框架页面跳转到登陆页面
-                window.parent.location.href = "${pageContext.request.contextPath}/login.jsp";
+                window.parent.location.href = "login.jsp";
             }
 
         };
@@ -33,7 +33,7 @@
 
 </HEAD>
 <BODY>
-<FORM id=form1 name=form1 action="${pageContext.request.contextPath}/UserAction_regist" method=post>
+<FORM id=form1 name=form1 action="${pageContext.request.contextPath}/UserAction_login" method=post>
 
     <DIV id=UpdatePanel1>
         <DIV id=div1
@@ -51,7 +51,7 @@
                                                    border=0></TD>
                 </TR>
                 <TR>
-                    <TD background="images/regist_title.png" height=300>
+                    <TD background=images/login_2.jpg height=300>
                         <TABLE height=300 cellPadding=0 width=900 border=0>
                             <TBODY>
                             <TR>
@@ -81,21 +81,22 @@
                                             </TD>
                                         </TR>
                                         <TR>
-                                            <TD style="HEIGHT: 28px">昵称：</TD>
+                                            <TD style="HEIGHT: 28px">验证码：</TD>
                                             <TD style="HEIGHT: 28px"><INPUT id=txtcode
-                                                                            style="WIDTH: 130px" name="user_name"></TD>
+                                                                            style="WIDTH: 130px" name=txtcode></TD>
                                             <TD style="HEIGHT: 28px">&nbsp;</TD>
                                         </TR>
                                         <TR>
                                             <TD style="HEIGHT: 18px" colspan="2"><font color="red"><s:property
-                                                    value="#error"/> </font></TD>
+                                                    value="exception.message"/> </font></TD>
                                             <TD style="HEIGHT: 18px"></TD>
                                         </TR>
                                         <TR>
-                                            <TD></TD>
-                                            <TD><INPUT id=btn
-                                                       style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px"
-                                                       type=image src="images/regist_button.png" name=btn>
+                                            <TD colspan="2"><INPUT id=btn
+                                                                   style="BORDER-TOP-WIDTH: 0px; BORDER-LEFT-WIDTH: 0px; BORDER-BOTTOM-WIDTH: 0px; BORDER-RIGHT-WIDTH: 0px"
+                                                                   type=image src="images/login_button.gif" name=btn>
+                                                <img src="images/regist_button.png" style="cursor: pointer;"
+                                                     onclick="window.location.href='regist.jsp'">
                                             </TD>
                                         </TR>
                                         </TBODY>
