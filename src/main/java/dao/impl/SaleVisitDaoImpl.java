@@ -11,6 +11,7 @@ import javax.annotation.Resource;
 @Repository("saleVisitDao")
 public class SaleVisitDaoImpl extends BaseDaoImpl<SaleVisit> implements SaleVisitDao {
 
+    @Override
     @Resource(name = "sessionFactory")
     public void setSf(SessionFactory sf) {
         super.setSessionFactory(sf);

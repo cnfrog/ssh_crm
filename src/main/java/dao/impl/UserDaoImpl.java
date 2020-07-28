@@ -13,6 +13,7 @@ import java.util.List;
 @Repository("userDao")
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
 
+    @Override
     @Resource(name = "sessionFactory")
     public void setSf(SessionFactory sf) {
         super.setSessionFactory(sf);

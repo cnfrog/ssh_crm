@@ -14,6 +14,7 @@ import java.util.List;
 public class BaseDictDaoImpl extends BaseDaoImpl<BaseDict> implements BaseDictDao {
 
 
+    @Override
     @Resource(name = "sessionFactory")
     public void setSf(SessionFactory sf) {
         super.setSessionFactory(sf);

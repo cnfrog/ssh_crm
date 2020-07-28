@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 @Repository("linkManDao")
 public class LinkManDaoImpl extends BaseDaoImpl<LinkMan> implements LinkManDao{
 
+    @Override
     @Resource(name = "sessionFactory")
     public void setSf(SessionFactory sf) {
         super.setSessionFactory(sf);

@@ -15,13 +15,14 @@ import java.util.List;
 @Repository("customerDao")
 public class CustomerDaoImpl extends BaseDaoImpl<Customer> implements CustomerDao {
 
+    @Override
     @Resource(name = "sessionFactory")
     public void setSf(SessionFactory sf) {
         super.setSessionFactory(sf);
     }
 
     @Override
-    public List<Object[]> getTypeCount(String type) {
+    public List<Object[]> getTypeCount(final String type) {
 
         List<Object[]> list = getHibernateTemplate().execute(new HibernateCallback<List>() {
             String sql = "SELECT\n" +
